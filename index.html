@@ -202,7 +202,8 @@ section{position:relative;z-index:2;padding:120px 52px;}
 .c-form{display:flex;flex-direction:column;gap:14px;}
 .fg{display:flex;flex-direction:column;gap:7px;}
 .fl{font-size:8.5px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
-.fi,.ft{background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text);padding:13px 16px;font-family:'Segoe UI',system-ui,sans-serif;font-size:13.5px;outline:none;transition:border-color .3s,box-shadow .3s;}
+.fi,.ft{background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text);padding:13px 16px;font-family:'Segoe UI',system-ui,sans-serif;font-size:13.5px;outline:none;transition:border-color .3s,box-shadow .3s;width:100%;}
+.fi option{background:#06061a;color:var(--text);}
 .fi:focus,.ft:focus{border-color:rgba(0,216,255,.38);box-shadow:0 0 14px rgba(0,216,255,.07);}
 .ft{resize:vertical;min-height:110px;}
 .c-info{display:flex;flex-direction:column;gap:30px;}
@@ -258,6 +259,7 @@ footer{position:relative;z-index:2;padding:36px 52px;border-top:1px solid var(--
 .reveal-l.in{opacity:1;transform:translateX(0);}
 .reveal-r{opacity:0;transform:translateX(38px);transition:opacity .85s ease,transform .85s ease;}
 .reveal-r.in{opacity:1;transform:translateX(0);}
+.fi-select{appearance:none;-webkit-appearance:none;background-repeat:no-repeat;background-position:right 16px center;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300d8ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");}
 </style>
 </head>
 <body>
@@ -389,17 +391,30 @@ footer{position:relative;z-index:2;padding:36px 52px;border-top:1px solid var(--
   </div>
   <div class="contact-layout">
     <div class="c-form reveal-l">
-      <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Dr. Jane Smith"></div>
-      <div class="fg"><label class="fl">Organization</label><input class="fi" type="text" placeholder="Apex Systems Ltd."></div>
-      <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="jane@apex.io"></div>
-      <div class="fg"><label class="fl">Message</label><textarea class="ft" placeholder="Tell us what you are building..."></textarea></div>
+      <div style="font-family:'Courier New',monospace;font-size:clamp(16px,1.8vw,22px);font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:10px;">Send a Message</div>
+      <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" placeholder="Your Name"></div>
+      <div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="you@company.com"></div>
+      <div class="fg"><label class="fl">Phone</label><input class="fi" type="tel" placeholder="+91 98765 43210"></div>
+      <div class="fg"><label class="fl">Project Type</label>
+        <select class="fi fi-select">
+          <option value="" disabled selected>Select project type</option>
+          <option value="healthcare">Healthcare AI</option>
+          <option value="defence">Defence &amp; Security</option>
+          <option value="industrial">Industrial Automation</option>
+          <option value="smartcity">Smart Cities</option>
+          <option value="space">Space &amp; Aerospace</option>
+          <option value="oil">Oil &amp; Gas</option>
+          <option value="financial">Financial Systems</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Message</label><textarea class="ft" placeholder="Tell us about your project, budget range, and timeline..."></textarea></div>
       <button class="btn-p" style="margin-top:6px;border:none;" onclick="this.textContent='Message Sent';this.style.background='linear-gradient(135deg,#0a8a0a,#0a6e0a)'">Send Message</button>
     </div>
     <div class="c-info reveal-r">
-      <div><div class="ci-label">General Inquiries</div><div class="ci-val"><a href="/cdn-cgi/l/email-protection#89eae6e7fde8eafdc9fbe0faece5e0fce4e8e0a7e0e6"><span class="__cf_email__" data-cfemail="8fece0e1fbeeecfbcffde6fceae3e6fae2eee6a1e6e0">[email&#160;protected]</span></a></div></div>
-      <div><div class="ci-label">Enterprise Sales</div><div class="ci-val"><a href="/cdn-cgi/l/email-protection#ceaba0baabbcbebca7bdab8ebca7bdaba2a7bba3afa7e0a7a1"><span class="__cf_email__" data-cfemail="7b1e150f1e090b0912081e3b0912081e17120e161a12551214">[email&#160;protected]</span></a></div></div>
-      <div><div class="ci-label">Security and Compliance</div><div class="ci-val"><a href="/cdn-cgi/l/email-protection#6211070117100b161b22100b11070e0b170f030b4c0b0d"><span class="__cf_email__" data-cfemail="d1a2b4b2a4a3b8a5a891a3b8a2b4bdb8a4bcb0b8ffb8be">[email&#160;protected]</span></a></div></div>
-      <div><div class="ci-label">Location</div><div class="ci-val" style="font-size:13px;color:var(--muted)">San Francisco &middot; London &middot; Singapore &middot; Tel Aviv</div></div>
+      <div><div class="ci-label">General Inquiries</div><div class="ci-val"><a href="mailto:info@riselium.com">&#x2709;&#xFE0F; info@riselium.com</a></div></div>
+      <div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+917996432464">+91 79964 32464</a></div></div>
+      <div><div class="ci-label">Location</div><div class="ci-val" style="font-size:13px;color:var(--muted)">Gachibowli, Hyderabad<br>State Telangana, India</div></div>
 
     </div>
   </div>
@@ -578,7 +593,7 @@ footer{position:relative;z-index:2;padding:36px 52px;border-top:1px solid var(--
 
 <footer>
   <span class="f-brand">RISELIUMAI</span>
-  <span class="f-copy">&copy; 2025 RISELIUMAI Corp. All rights reserved.</span>
+  <span class="f-copy">&copy; 2026 RISELIUMAI Corp. All rights reserved.</span>
   <div class="f-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a><a href="#">Careers</a></div>
 </footer>
 
@@ -588,7 +603,7 @@ footer{position:relative;z-index:2;padding:36px 52px;border-top:1px solid var(--
   <div class="res-panel" id="res-panel-content"></div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // CURSOR
 const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
 document.addEventListener('mousemove',function(e){
@@ -1741,12 +1756,32 @@ document.getElementById('about-overlay').addEventListener('click',function(e){
     current = ((n % sectors.length) + sectors.length) % sectors.length;
     render();
   };
-  window.impSlide = function(dir){ impGoTo(current + dir); };
+  window.impSlide = function(dir){
+    current = ((current + dir) % sectors.length + sectors.length) % sectors.length;
+    render();
+  };
 
   render();
-  setInterval(function(){ impGoTo(current+1); }, 5000);
+
+  var impAuto = setInterval(function(){ window.impSlide(1); }, 5000);
+  document.getElementById('imp-carousel') && document.getElementById('imp-carousel').addEventListener('mouseenter', function(){ clearInterval(impAuto); });
+  document.getElementById('imp-carousel') && document.getElementById('imp-carousel').addEventListener('mouseleave', function(){ impAuto = setInterval(function(){ window.impSlide(1); }, 5000); });
+
 })();
 
+// ABOUT OVERLAY
+function openAbout(){
+  document.getElementById('about-overlay').style.opacity='1';
+  document.getElementById('about-overlay').style.visibility='visible';
+  document.getElementById('about-panel-full').style.transform='translateX(0)';
+  document.body.style.overflow='hidden';
+}
+function closeAbout(){
+  document.getElementById('about-overlay').style.opacity='0';
+  document.getElementById('about-overlay').style.visibility='hidden';
+  document.getElementById('about-panel-full').style.transform='translateX(100%)';
+  document.body.style.overflow='';
+}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAbout();});
 </script>
 </body>
