@@ -247,10 +247,16 @@ section{position:relative;z-index:2;padding:120px 52px;}
 .res-empty-icon{font-size:40px;margin-bottom:16px;opacity:.3;}
 /* Newsletter signup */
 .res-newsletter{border:1px solid var(--border);background:var(--bg2);padding:40px;text-align:center;margin-bottom:32px;}
-footer{position:relative;z-index:2;padding:36px 52px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
-.f-brand{font-family:'Courier New',monospace;font-size:12px;font-weight:700;letter-spacing:2px;background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+footer{position:relative;z-index:2;padding:36px 52px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;background:var(--bg);}
+.f-social{display:flex;gap:10px;align-items:center;}
+.f-social a{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:6px;transition:opacity .2s,transform .2s;text-decoration:none;flex-shrink:0;}
+.f-social a:hover{opacity:.85;transform:translateY(-2px);}
+.f-media-wrap{position:relative;display:inline-flex;align-items:center;}
+.f-media-popup{display:none;position:absolute;bottom:calc(100% + 14px);right:0;background:rgba(4,4,20,0.97);border:1px solid rgba(0,216,255,.18);border-radius:10px;padding:14px 16px;z-index:999;box-shadow:0 -8px 40px rgba(0,0,0,.6);white-space:nowrap;}
+.f-media-popup::after{content:'';position:absolute;bottom:-6px;right:14px;width:10px;height:10px;background:rgba(4,4,20,0.97);border-right:1px solid rgba(0,216,255,.18);border-bottom:1px solid rgba(0,216,255,.18);transform:rotate(45deg);}
+.f-media-popup.open{display:block;}.f-brand{font-family:'Courier New',monospace;font-size:12px;font-weight:700;letter-spacing:2px;background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .f-copy{font-size:10.5px;color:rgba(255,255,255,.18);letter-spacing:1px;}
-.f-links{display:flex;gap:26px;}
+.f-links{display:flex;gap:26px;align-items:center;}
 .f-links a{font-size:9.5px;color:rgba(255,255,255,.22);text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:color .2s;}
 .f-links a:hover{color:var(--cyan);}
 .reveal{opacity:0;transform:translateY(38px);transition:opacity .85s ease,transform .85s ease;}
@@ -412,7 +418,7 @@ footer{position:relative;z-index:2;padding:36px 52px;border-top:1px solid var(--
       <button class="btn-p" style="margin-top:6px;border:none;" onclick="this.textContent='Message Sent';this.style.background='linear-gradient(135deg,#0a8a0a,#0a6e0a)'">Send Message</button>
     </div>
     <div class="c-info reveal-r">
-      <div><div class="ci-label">General Inquiries</div><div class="ci-val"><a href="mailto:info@riselium.com">&#x2709;&#xFE0F; info@riselium.com</a></div></div>
+      <div><div class="ci-label">General Inquiries</div><div class="ci-val"><a href="/cdn-cgi/l/email-protection#5d34333b321d2f342e3831342830733e3230">&#x2709;&#xFE0F; <span class="__cf_email__" data-cfemail="e980878f86a99b809a8c85809c84c78a8684">[email&#160;protected]</span></a></div></div>
       <div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+917996432464">+91 79964 32464</a></div></div>
       <div><div class="ci-label">Location</div><div class="ci-val" style="font-size:13px;color:var(--muted)">Gachibowli, Hyderabad<br>State Telangana, India</div></div>
 
@@ -594,7 +600,25 @@ footer{position:relative;z-index:2;padding:36px 52px;border-top:1px solid var(--
 <footer>
   <span class="f-brand">RISELIUMAI</span>
   <span class="f-copy">&copy; 2026 RISELIUMAI Corp. All rights reserved.</span>
-  <div class="f-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a><a href="#">Careers</a></div>
+  <div class="f-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Security</a>
+    <a href="#">Careers</a>
+    <span class="f-media-wrap">
+      <a href="#" onclick="toggleMediaPopup(event)">Media</a>
+      <div class="f-media-popup" id="f-media-popup">
+        <div style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Connect with us</div>
+        <div style="display:flex;gap:8px;flex-wrap:nowrap;">
+          <a href="#" target="_blank" title="Facebook" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:#1877F2;transition:opacity .2s,transform .2s;" onmouseenter="this.style.opacity='.8';this.style.transform='translateY(-2px)'" onmouseleave="this.style.opacity='1';this.style.transform='translateY(0)'"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" target="_blank" title="X (Twitter)" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:#000;transition:opacity .2s,transform .2s;" onmouseenter="this.style.opacity='.8';this.style.transform='translateY(-2px)'" onmouseleave="this.style.opacity='1';this.style.transform='translateY(0)'"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" target="_blank" title="YouTube" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:#FF0000;transition:opacity .2s,transform .2s;" onmouseenter="this.style.opacity='.8';this.style.transform='translateY(-2px)'" onmouseleave="this.style.opacity='1';this.style.transform='translateY(0)'"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12z"/></svg></a>
+          <a href="#" target="_blank" title="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:#0A66C2;transition:opacity .2s,transform .2s;" onmouseenter="this.style.opacity='.8';this.style.transform='translateY(-2px)'" onmouseleave="this.style.opacity='1';this.style.transform='translateY(0)'"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" target="_blank" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);transition:opacity .2s,transform .2s;" onmouseenter="this.style.opacity='.8';this.style.transform='translateY(-2px)'" onmouseleave="this.style.opacity='1';this.style.transform='translateY(0)'"><svg width="16" height="16" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></a>
+        </div>
+      </div>
+    </span>
+  </div>
 </footer>
 
 <!-- RESOURCE OVERLAY -->
@@ -603,7 +627,7 @@ footer{position:relative;z-index:2;padding:36px 52px;border-top:1px solid var(--
   <div class="res-panel" id="res-panel-content"></div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // CURSOR
 const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
 document.addEventListener('mousemove',function(e){
@@ -1782,7 +1806,9 @@ function closeAbout(){
   document.getElementById('about-panel-full').style.transform='translateX(100%)';
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAbout();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAbout();var p=document.getElementById('f-media-popup');if(p)p.classList.remove('open');}});
+document.addEventListener('click',function(e){var p=document.getElementById('f-media-popup');if(p&&p.classList.contains('open')){var w=p.closest?p.closest('.f-media-wrap'):null;if(w&&!w.contains(e.target))p.classList.remove('open');}});
+function toggleMediaPopup(e){e.preventDefault();var p=document.getElementById('f-media-popup');if(p)p.classList.toggle('open');}
 </script>
 </body>
 </html>
